@@ -22,9 +22,7 @@ lib-cov
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
+
 
 # Coverage directory used by tools like istanbul
 coverage
