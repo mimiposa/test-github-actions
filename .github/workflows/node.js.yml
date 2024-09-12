@@ -5,14 +5,25 @@ name: Node.js
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - "main"
+      - "develop"
+      - "feature/*"
+      - "release/*"
+      - "hotfix/*"
+
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - "main"
+      - "develop"
+      - "feature/*"
+      - "release/*"
+      - "hotfix/*"
 
 jobs:
   build:
     name: Build my app
-    
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -21,10 +32,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    
+      - uses: actions/checkout@v4
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
